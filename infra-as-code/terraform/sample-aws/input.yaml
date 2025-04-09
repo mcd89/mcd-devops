@@ -1,0 +1,26 @@
+# Replace with the name which you want to give to your EKS cluster
+# Cluster name can have only lowercase alphanumeric characters and hyphens
+# For example: "upyog-demo"
+cluster_name: "mcdupyog"
+
+# Replace with ssh key name you want
+ssh_key_name: "mcdupyog-ssh-key" 
+
+# Replace with public key which you want to add in your EC2 machines # ssh key which you want to add in your EC2 machines
+public_ssh_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCE8QytpBbpWd1I4yMePsC1TwONulrSfB28xO+9s15Mf0weeJQBsiTbWo5VQwc+tk+sPSBqDFVTjJPXoBTakctZbPoT1VH+FEmMQmJdxhSA4hQEkR6Ex+YpgMSQAMbk5fvjd8imAucoy8l7uO+D/DiYMEJSnkIGg53nMm6tRVpFUtwvyGKRF4WVtmSl6OyBQp2zkouH6vsbB8cIRA35uOtELXH7i7kFSC9CzAErtvVti71yYV4u22gvbdS8Tq7SsSa3tNvGnanWK3vvId2x4GaheeO8BOU4i+dxRiPAzXBmmZchQKYYyAZWQwc9dLW4/suZAAKTWeROLgcvhkMR2rjL"
+
+# Name you want to give to your Database
+# DB name must contain only alphanumeric characters
+db_name: "mcdupyog"
+
+# Replace with DB username you want
+# DB user name must contain only alphanumeric characters
+db_username: "mcdupyog" 
+
+# Replace with Domain name you want for your web applications
+domain_name: "mcdupyog.niua.in"
+
+# Replace with the name you want to give to your S3 bucket which is used to store the terraform state
+terraform_state_bucket_name: "mcdupyog-terraform"
+
+
