@@ -3,7 +3,7 @@ modules:
     - name: backbone
       services:
         - zookeeper-v2:5.4.1
-        - kafka-v2:5.4.1
+#        - kafka-v2:5.4.1
         - kafka-connect:5.4.1
         - kafka-connect-restart-tasks
         - elasticsearch-data-v1
@@ -75,7 +75,7 @@ modules:
         - upyogio/citizen:v1.10.0-beta-3f2fe9abc7-10
         - upyogio/employee:v1.10.0-beta-3f2fe9abc7-17
         - upyogio/digit-ui:v1.7.0-beta.2-cf0dafd7b8-405
-        - upyogio/zuul-kubernetes-discovery:vNA-452b00d9de-4
+#        - upyogio/zuul-kubernetes-discovery:vNA-452b00d9de-4
     - name: m_property-tax    #PT
       dependencies:
         - "core"
@@ -93,3 +93,8 @@ modules:
         - upyogio/tl-calculator:v1.1.5-64da31c86e-6
         - upyogio/tl-services:v1.1.9-462c24adb1-42   
         - upyogio/zuul:v1.3.2-3f038e780d-16
+    - name: m_finance         #Finance
+      dependencies:
+          - "core"
+      services:
+          - mcd89/egov-finance:20250408v1
