@@ -1,7 +1,3 @@
-# ******* NOTE START ******* 
-# All of the credentials and secrets mentioned in this file are dummy and donot belong to any environment, product or project. The implementation partners are required to update these dummy credentials with the actual credentials of their environment, product or project.
-# ******* NOTE END *******
-
 #
 # Variables Configuration
 #
@@ -23,7 +19,7 @@ variable "availability_zones" {
 }
 
 variable "kubernetes_version" {
-  default = "1.20"
+  default = "1.30"
 }
 
 variable "instance_type" {
@@ -31,7 +27,7 @@ variable "instance_type" {
 }
 
 variable "override_instance_types" {
-  default = ["t3.xlarge", "r5ad.xlarge", "r5a.xlarge", "t3a.xlarge"]
+  default = ["t3.xlarge", "t3a.xlarge"]
 }
 
 variable "number_of_worker_nodes" {

@@ -75,7 +75,7 @@ modules:
         - upyogio/citizen:v1.10.0-beta-3f2fe9abc7-10
         - upyogio/employee:v1.10.0-beta-3f2fe9abc7-17
         - upyogio/digit-ui:v1.7.0-beta.2-cf0dafd7b8-405
-#        - upyogio/zuul-kubernetes-discovery:vNA-452b00d9de-4
+        - upyogio/zuul-kubernetes-discovery:2-master-91c9795
     - name: m_property-tax    #PT
       dependencies:
         - "core"
