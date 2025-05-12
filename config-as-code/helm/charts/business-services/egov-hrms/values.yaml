@@ -28,7 +28,7 @@ healthChecks:
 appType: "java-spring"
 tracing-enabled: true
 employee-applink: "https://egov-micro-dev.egovernments.org/employee/user/login"
-heap: "-Xmx512m -Xms512m"
+heap: "-Xmx1024m -Xms1024m"
 java-args: "-Dspring.profiles.active=monitoring"
 
 # Additional Container Envs
