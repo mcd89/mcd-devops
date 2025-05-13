@@ -393,7 +393,7 @@ report:
     gitSync:
       repo: "git@github.com:mcd89/mcd-upyog-configs"     ##### Change repo url with Your fork Repo url
       branch: "master"                                   ##### Change repo branch with Your fork Repo branch
-  report-locationsfile-path: "file:///work-dir/mcd-upyog-configs/reports/reportFileLocationsv1.txt"
+  report-locationsfile-path: "file:///work-dir/mcd-upyog-configs/configs/reports/reportFileLocationsv1.txt"
 
 pdf-service:
   initContainers:
