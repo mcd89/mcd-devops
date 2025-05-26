@@ -11,12 +11,13 @@ ingress:
 
 # Init Containers Configs
 
+
 # Container Configs
 image:
   repository: "home"
 replicas: "1"
 healthChecks:
-  enabled: true
+  enabled: false
   livenessProbePath: "/home/health"
   readinessProbePath: "/home/health"
 appType: "java-spring"
