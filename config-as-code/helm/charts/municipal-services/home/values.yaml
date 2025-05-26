@@ -1,25 +1,25 @@
 # Common Labels
 labels:
-  app: "home"
+  app: "home-ui"
   group: "rainmaker"
 
 # Ingress Configs
 ingress:
   enabled: true
   zuul: true
-  context: "home"
+  context: "home-ui"
 
 # Init Containers Configs
 
 
 # Container Configs
 image:
-  repository: "home"
+  repository: "home-ui"
 replicas: "1"
 healthChecks:
   enabled: false
-  livenessProbePath: "/home/health"
-  readinessProbePath: "/home/health"
+  livenessProbePath: "/home-ui/health"
+  readinessProbePath: "/home-ui/health"
 appType: "java-spring"
 tracing-enabled: true
 heap: "-Xmx256m -Xms256m"
