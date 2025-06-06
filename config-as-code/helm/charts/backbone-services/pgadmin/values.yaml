@@ -2,7 +2,7 @@
 labels:
   app: "pgadmin"
   group: "pgadmin"
-namespace: playground
+namespace: egov
 
 # Ingress Configs
 ingress:
