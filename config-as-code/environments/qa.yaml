@@ -14,10 +14,10 @@ cluster-configs:
         egov-config:
             namespace: [ egov, monitoring ]
             data:
-                db-host: mcdupyog-db.c76kcq0gqdh5.ap-south-1.rds.amazonaws.com:5432 ## Add db-host name eg: upyog-demo.database.azure.com
+                db-host: ec2-3-111-236-190.ap-south-1.compute.amazonaws.com:5432 ## Add db-host name eg: upyog-demo.database.azure.com
                 db-name: upyogmcd ## Add db-name
-                db-url: jdbc:postgresql://mcdupyog-db.c76kcq0gqdh5.ap-south-1.rds.amazonaws.com:5432/upyogmcd ## example: jdbc:postgresql://upyog-demo.postgres.database.azure.com:5432/egov_demo
-                erp-db-url: jdbc:postgresql://mcdupyog-db.c76kcq0gqdh5.ap-south-1.rds.amazonaws.com:5432/financedb
+                db-url: jdbc:postgresql://ec2-3-111-236-190.ap-south-1.compute.amazonaws.com:5432/upyogmcd ## example: jdbc:postgresql://upyog-demo.postgres.database.azure.com:5432/egov_demo
+                erp-db-url: jdbc:postgresql://ec2-3-111-236-190.ap-south-1.compute.amazonaws.com:5432/financedb
                 domain: mcdupyog.sparrowsoftech.in ## Add your Domain Name    
                 egov-services-fqdn-name: https://mcdupyog.sparrowsoftech.in/ ## Add your Domain Name                
                 egov-state-level-tenant-id: "pg" 
@@ -202,7 +202,7 @@ pgadmin:
     - egovio/pgadmin:v0.1
 
 pgadmin-config:
-  host: "mcdupyog-db.c76kcq0gqdh5.ap-south-1.rds.amazonaws.com"
+  host: "ec2-3-111-236-190.ap-south-1.compute.amazonaws.com"
   db-admin-username: "mcdupyog"
   db-read-username: "pbprod_readonly"
   port: "5432"
