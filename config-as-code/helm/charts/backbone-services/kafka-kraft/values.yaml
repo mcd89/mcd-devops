@@ -78,10 +78,11 @@ diagnosticMode:
 ## @param image.pullSecrets Specify docker-registry secret names as an array
 ## @param image.debug Specify if debug values should be set
 ##
+
 image:
   registry: docker.io
-  repository: bitnami/kafka
-  tag: 3.6.0-debian-11-r0
+  repository: bitnamilegacy/kafka
+  tag: 4.0.0-debian-12-r10
   digest: ""
   ## Specify a imagePullPolicy
   ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'

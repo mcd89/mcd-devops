@@ -17,14 +17,21 @@ httpPort: 8080
 
 resources: |
   limits:
-    memory: "3Gi"
+    memory: "6Gi"
   requests:
-    memory: "3Gi"
+    memory: "6Gi"
 min-pool-connection: "5"
-max-pool-connection: "5"
+max-pool-connection: "60"
 collection-version: V2
 
+# Optional Tuning Parameters to prevent maximum load (more than 1500+ consurrent users)
+#-XX:MaxGCPauseMillis=200       # Aim for max 200ms GC pauses
+#-XX:InitiatingHeapOccupancyPercent=45  # Start concurrent GC when heap is 45% full
+#-XX:+ParallelRefProcEnabled      # Parallel reference processing
+
 env: |
+  - name: JAVA_OPTS
+    value: "-Xms2g -Xmx3g -XX:+UseG1GC"
   - name: DB_URL
     valueFrom: 
       configMapKeyRef: 
@@ -104,10 +111,32 @@ env: |
     value: {{ index .Values "min-pool-connection" | quote }}
   - name: max-pool-size
     value: {{ index .Values "max-pool-connection" | quote }}
+
 healthChecks:
   enabled: true
-  livenessProbePath: "/"
-  readinessProbePath: "/"
+  #livenessProbePath: "/"
+  livenessProbe: |
+    failureThreshold: 10
+    httpGet:
+      path: /
+      port: 8080
+      scheme: HTTP
+    initialDelaySeconds: 180
+    periodSeconds: 60
+    successThreshold: 1
+    timeoutSeconds: 10
+
+  #readinessProbePath: "/"
+  readinessProbe: |
+    failureThreshold: 5
+    httpGet:
+      path: /
+      port: 8080
+      scheme: HTTP
+    initialDelaySeconds: 120
+    periodSeconds: 30
+    successThreshold: 1
+    timeoutSeconds: 10
 
 extraVolumeMounts: |
   - mountPath: /opt/jboss/wildfly/modules/system/layers/base/org/egov/settings/main/config/egov-erp-override.properties
@@ -117,7 +146,6 @@ extraVolumes: |
   - name: override-config
     configMap:
       name: egov-finance-config        
-
 
 scheduler: true
 dev_mode: false
@@ -130,7 +158,7 @@ secure_cookie: true
 sms: true
 mail: true
 captcha: low
-redis_host: redis.backbone 
+redis_host: redis.backbone
 redis_port: 6379
 db_flyway: true
 statewide_migration: true
@@ -157,12 +185,12 @@ smc_config: |
   sms.message.req.param.name=message
   sms.extra.req.params=messageType=text
   sms.error.codes=401,403,404,405,406,407,408,409,410,411,412,413,414       
-  
+
 elastic_config: |
   #elasticsearch.hosts=punjab-dev-es-cluster
   #elasticsearch.port=9300
   #elasticsearch.cluster.name=punjab-dev-es-cluster
-  
+
 elastic_search_config: |
   search.index.q=java:/jms/queue/searchindex
   #search.hosts=punjab-dev-es-cluster
@@ -250,11 +278,9 @@ systemintegration: |
 ingress:
   enabled: true
   zuul: false
-  waf: 
+  waf:
     enabled: false
   #hostName: jalandhar-dev.egovernments.org
   additionalAnnotations: |
     nginx.ingress.kubernetes.io/rewrite-target: /services
   context: "services"
-  
-

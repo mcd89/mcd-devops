@@ -62,11 +62,11 @@ env: |
 
 resources:
  limits:
-   cpu: 300m
-   memory: 256Mi
+   cpu: "300m"
+   memory: "256Mi"
  requests:
-   cpu: 100m
-   memory: 256Mi
+   cpu: "100m"
+   memory: "256Mi"
 
 grafana.ini:
   paths:
